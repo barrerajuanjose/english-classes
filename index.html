@@ -2,6 +2,7 @@
     <head>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -46,8 +47,9 @@
                 </div>
                 <div class="col">
                     <p class="h5">Vocabulary</p>
+                    <input class="form-control" id="volabulary-input" type="text" placeholder="Search..">
                     <div class="container">
-                        <div class="row row-cols-3">
+                        <div id="volabulary-table" class="row row-cols-3">
                             <div class="col">despite/a pesar de</div>
                             <div class="col">perhaps/quisas, tal vez</div>
                             <div class="col">stand/quedarse</div>
@@ -137,5 +139,16 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#volabulary-input").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#volabulary-table *").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
