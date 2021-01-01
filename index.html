@@ -2,10 +2,12 @@
     <head>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <script src="sortable.js"></script>
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid sortable">
+            <div class="row sortable">
                 <div class="col">
                     <img src="./prep-place.png" class="img-fluid">
                 </div>
@@ -40,7 +42,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row sortable">
                 <div class="col-7">
                     <img src="./conectors.jpg" class="img-fluid">
                 </div>
@@ -496,6 +498,10 @@
             }
 
             ready(filter);
+            
+            sortable('.sortable', {
+                forcePlaceholderSize: true
+            });
         </script>
     </body>
 </html>
